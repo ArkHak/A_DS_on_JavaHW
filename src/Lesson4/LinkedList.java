@@ -4,13 +4,13 @@ import java.util.Iterator;
 
 public interface LinkedList<T>  {
 
-    void insertFirst(T id);
+    void insertFirst(T name);
 
     T removeFirst();
 
-    boolean remove(T value);
+    boolean remove(T name);
 
-    boolean contains(T value);
+    boolean contains(T name);
 
     int size();
 
@@ -21,8 +21,8 @@ public interface LinkedList<T>  {
     T getFirst();
 
     class People<T> {
-        T item;
-        People<T> next;
+        public T item;
+        public People<T> next;
         People<T> previous;
 
         public People(T item, People<T> next) {

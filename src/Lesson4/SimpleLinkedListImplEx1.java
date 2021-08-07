@@ -9,8 +9,8 @@ public class SimpleLinkedListImplEx1<E> implements LinkedList<E>, Iterable<E> {
     protected int size;
 
     @Override
-    public void insertFirst(E value) {
-        firstPeople = new People<>(value, firstPeople);
+    public void insertFirst(E name) {
+        firstPeople = new People<>(name, firstPeople);
         size++;
     }
 
@@ -22,11 +22,12 @@ public class SimpleLinkedListImplEx1<E> implements LinkedList<E>, Iterable<E> {
 
         People<E> removedPeople = firstPeople;
         firstPeople = removedPeople.next;
-        removedPeople.next = null;
+        removedPeople.previous = null;
 
         size--;
         return removedPeople.item;
     }
+
 
     @Override
     public boolean remove(E value) {
