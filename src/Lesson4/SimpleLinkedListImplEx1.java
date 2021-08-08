@@ -111,8 +111,9 @@ public class SimpleLinkedListImplEx1<E> implements LinkedList<E>, Iterable<E> {
         return new LinkedListIterator();
     }
 
+    @Override
     public void forEach() {
-        for(Iterator<String> i = (Iterator<String>) this.iterator(); i.hasNext(); ) {
+        for (Iterator<String> i = (Iterator<String>) this.iterator(); i.hasNext(); ) {
             String peopleName = i.next();
             System.out.println(peopleName);
         }

@@ -20,9 +20,11 @@ public interface LinkedList<T>  {
 
     T getFirst();
 
+    void forEach();
+
     class People<T> {
         public T item;
-        public People<T> next;
+        People<T> next;
         People<T> previous;
 
         public People(T item, People<T> next) {

@@ -38,12 +38,24 @@ public class MainExHW {
         list.pushBack("Igor");
         list.pushBack("Julia");
 
+        System.out.println("Default list:");
         list.display();
 
+        list.pushFront("Luci");
+        System.out.println("List after pushFront:");
+        list.display();
+
+        System.out.println("List after pushBack:");
+        list.pushBack("Tom");
+        list.display();
+
+        System.out.println("List after popFront:");
+        list.popFront();
+        list.display();
+
+        System.out.println("List after popBack:");
         list.popBack();
-
         list.display();
-
 
     }
 }

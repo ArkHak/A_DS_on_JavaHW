@@ -3,6 +3,8 @@ package Lesson4;
 import Lesson4.SimpleLinkedListImplEx1;
 import Lesson4.TwoSideLinkedList;
 
+import java.util.Iterator;
+
 public class TwoSideLinkedListImplEx2<E> extends SimpleLinkedListImplEx1<E> implements TwoSideLinkedList<E> {
     protected People<E> lastPeople;
 
@@ -24,6 +26,7 @@ public class TwoSideLinkedListImplEx2<E> extends SimpleLinkedListImplEx1<E> impl
         public void popFront() {
             list.removeFirst();
         }
+
         public void popBack() {
             list.removeLast();
         }
@@ -79,10 +82,21 @@ public class TwoSideLinkedListImplEx2<E> extends SimpleLinkedListImplEx1<E> impl
         if (isEmpty()) {
             return null;
         }
+        if (lastPeople == firstPeople) {
+            return null;
+        }
 
         People<E> removedPeople = lastPeople;
-        firstPeople = removedPeople.next;
-        removedPeople.previous = null;
+        People<E> preRemovedPeople = null;
+        People<E> tempPeople = firstPeople;
+        while (tempPeople != lastPeople && tempPeople != null) {
+            preRemovedPeople = tempPeople;
+            tempPeople = tempPeople.next;
+        }
+
+        removedPeople.next = null;
+        assert preRemovedPeople != null;
+        preRemovedPeople.next = null;
 
         size--;
         return removedPeople.item;
