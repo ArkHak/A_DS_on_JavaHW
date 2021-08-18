@@ -12,10 +12,14 @@ public class EX1 {
     }
 
     private static int pow(int base, int degree) {
-        if (degree == 0) {
+        if (degree == 0)
             return 1;
+        if (degree % 2 == 1)
+            return pow (base, degree-1) * base;
+        else {
+            int b = pow (base, degree/2);
+            return b * b;
         }
-        return base * pow(base, degree - 1);
     }
 
 }
